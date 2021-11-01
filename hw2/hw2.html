@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<style>
+#info {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: #0e1796;
+}
+
+body {
+  overflow: hidden;
+}
+
+
+</style>
+</head>
+
+<body> 
+<div id='info'>
+    <h1>homework2</h1>  
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://jyunming-chen.github.io/tutsplus/js/KeyboardState.js"></script>
+<script type='module'>
+
+import * as THREE from "https://threejs.org/build/three.module.js";
+import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
+import {init, animate} from "./basic.js";
+    
+/*class Obstacle {
+    constructor(center, size) {
+        this.center = center.clone();
+        this.mesh = new THREE.Mesh(
+            new THREE.CylinderGeometry(size, size, 10, 20),
+            new THREE.MeshPhongMaterial({color:0xf8c7ff})
+        );
+        this.mesh.position.copy(center);
+        this.mesh.position.y = 5;
+        this.size = size;
+        scene.add(this.mesh);
+    }
+}*/
+
+
+
+/*var camera, scene, renderer;
+var truck;
+var keyboard = new KeyboardState();
+var clock;  
+var power, angle;
+var pos = new THREE.Vector3();
+var vel = new THREE.Vector3();
+var force = new THREE.Vector3();
+var cameraHUD1; 
+var rect;
+var state;
+*/
+(function() {
+    Math.clamp = function(val,min,max){
+    return Math.min(Math.max(val,min),max);
+
+}})();
+init();
+animate();
+
+/*function init() {
+    
+    clock = new THREE.Clock();
+    scene = new THREE.Scene();
+    
+    cameraHUD1 = new THREE.OrthographicCamera(-150,150,150,-150,-350,350);
+    cameraHUD1.position.set (0,30,0)
+    cameraHUD1.up.set (0,0,-1)   // for top view
+    cameraHUD1.lookAt (new THREE.Vector3())
+    
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x888888);
+   
+    
+    document.body.appendChild(renderer.domElement);
+
+ 
+    camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.set (0,200,250);
+    let controls = new OrbitControls(camera, renderer.domElement);
+    
+
+    var gridXZ = new THREE.GridHelper(200, 20, 'red', 'white');
+    scene.add(gridXZ);
+    ///////////////////////////////////////////////////////
+    power = 5.0;
+    angle = 0.0; 
+    ///////////////////////////////////////////////////////
+    scene.obstacles = [];
+    scene.obstacles.push(
+        new Obstacle(new THREE.Vector3(50, 0, 50), 15)
+    );
+    scene.obstacles.push(
+        new Obstacle(new THREE.Vector3(-70, 0, 40), 15)
+    );
+    scene.obstacles.push(
+        new Obstacle(new THREE.Vector3(0, 0, -60), 15)
+    );
+    initObject();
+    initLight();
+}*/
+    
+
+
+/*function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}*/
+/*function initObject(){
+    var material = new THREE.MeshPhongMaterial();
+    var geometry = new THREE.BoxGeometry(20,15,10);//車身
+    var box = new THREE.Mesh(geometry,material);
+    box.position.set(-5,9.5,0);
+    var geometry2 = new THREE.CylinderGeometry(3,3,15,64);
+    var cylinder = new THREE.Mesh(geometry2,material);//後輪
+    cylinder.position.set(-10,3,0);
+    cylinder.rotation.x = Math.PI/2;
+    var cylinder2 = new THREE.Mesh(geometry2,material);//前輪
+    cylinder2.position.set(10,3,0);
+    cylinder2.rotation.x = Math.PI/2;
+    
+    var shape = new THREE.Shape();//車頭
+    shape.moveTo( 0,0 );
+    shape.lineTo( 10,0 );
+    shape.lineTo( 10,5);
+    shape.lineTo( 5,5 );
+    shape.lineTo( 5,10 );
+    shape.lineTo( 0,10 );
+    shape.lineTo( 0,0 );
+    var extrudeSettings = {
+        steps: 2,
+        depth: 10,
+        bevelEnabled: true,
+        bevelThickness: 1,
+        bevelSize: 1,
+        bevelOffset: 0,
+        bevelSegments: 5
+    };
+    var geometry3 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+    var mesh = new THREE.Mesh( geometry3, material ) ;
+    mesh.position.set(6,3,-5);
+
+    rect = new THREE.Mesh (new THREE.PlaneGeometry (30,15), new THREE.MeshBasicMaterial({side: THREE.DoubleSide}));
+    
+    
+    truck = new THREE.Group();
+    truck.add(box,cylinder,cylinder2,mesh);
+    truck.rotation.y = -Math.PI/2;
+    scene.add(truck);
+    
+}*/
+
+/*function initLight(){
+    var pointLight = new THREE.PointLight(0x73c9c5);
+    pointLight.position.set(-20, 50, 10);
+    pointLight.castShadow = true;
+    scene.add(pointLight);
+    let pointLightHelper = new THREE.PointLightHelper(pointLight);
+    scene.add(pointLightHelper);
+}*/
+    
+/*function update(dt) {
+
+    keyboard.update();
+
+    if (vel.length() > 0) {
+        angle = 1.5*Math.PI + Math.atan2(vel.x, vel.z); 
+    }
+
+    
+    if (keyboard.pressed("space")) {
+        power = 0.1;   
+    }
+    if (keyboard.pressed("up"))  {
+        power *= 1.2;  
+
+    }
+    if (keyboard.pressed("down"))  {
+        power /= 1.2;  
+
+    }
+ 	
+    power = Math.clamp (power, 0, 80.0); 
+
+
+    var angle_thrust = angle;
+    if (keyboard.pressed("left")){
+        angle_thrust += 0.3;
+
+    }
+    if (keyboard.pressed("right")){
+        angle_thrust -= 0.3;
+
+    }
+
+    // compute force
+    var thrust = new THREE.Vector3(1,0,0).multiplyScalar(power).applyAxisAngle (new THREE.Vector3(0,1,0), angle_thrust);
+    force.copy (thrust);
+    force.add(vel.clone().multiplyScalar(-2))
+    
+
+    // eulers
+    
+    vel.add(force.clone().multiplyScalar(dt));
+    
+    if(state === 0){
+        pos.add(vel.clone().multiplyScalar(dt));
+    }
+    if(state === 1){
+        return;
+    }
+    
+    
+}*/
+
+/*function animate() {
+
+    var dt = clock.getDelta();
+    update(dt);
+    // car update
+    truck.position.copy(pos);
+    truck.rotation.y = angle;
+    
+    requestAnimationFrame(animate);
+    render();
+    
+    let Rect = makeRect(rect);
+    for(var i = 0;i < scene.obstacles.length;i++){
+        if (Check_Intersect (Rect, scene.obstacles[i].mesh, 15)) {
+            scene.obstacles[i].mesh.material.color = new THREE.Color ('red');
+            state = 1;
+        } else {
+            scene.obstacles[i].mesh.material.color = new THREE.Color ('pink');  
+            state = 0;
+        }
+    }
+    
+}
+
+function render() {
+    var ww = window.innerWidth;
+    var hh = window.innerHeight;
+    renderer.setScissorTest( true );
+
+    renderer.setViewport(0, 0, ww, hh);
+    renderer.setScissor(0, 0, ww, hh);
+    renderer.clear();
+
+    renderer.setViewport(0, 0, ww/2, hh);
+    renderer.setScissor(0, 0, ww/2, hh);
+    renderer.render(scene, camera);
+    renderer.setViewport(ww/2, 0, ww/2,hh);
+    renderer.setScissor(ww/2, 0, ww/2, hh);
+    renderer.render(scene, cameraHUD1);
+
+    renderer.setScissorTest( false );
+}*/
+    
+/*function makeRect(rect) {
+    let Rect = {};
+    Rect.max = truck.localToWorld ( new THREE.Vector3(15, 0, 7.5) );
+    Rect.min = truck.localToWorld ( new THREE.Vector3(-15, 0, -7.5) );
+    return Rect;
+}	
+    
+function objectCopy (src) {
+    return JSON.parse (JSON.stringify (src));
+}*/
+
+
+
+
+</script>
+</body>
+
+</html>
