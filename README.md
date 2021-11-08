@@ -11,3 +11,5 @@
             <strong>hw1.html</strong></a><br>
 <a href="http://chiching-code.github.io/CGhws/hw2/hw2.html">
             <strong>hw2.html</strong></a><br>
+<a href="http://chiching-code.github.io/CGhws/hw3.html">
+            <strong>hw3.html</strong></a><br>
