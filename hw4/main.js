@@ -150,7 +150,7 @@ export function animate() {
             candles[0].mesh.children[1].visible = false;
         }
         else{
-            candles[0].mesh.children[0].power = 1;
+            candles[0].mesh.children[0].power = 10;
             candles[0].mesh.children[1].visible = true;
         }
             
@@ -163,7 +163,7 @@ export function animate() {
             candles[1].mesh.children[1].visible = false;
         }
         else{
-            candles[1].mesh.children[0].power = 1;
+            candles[1].mesh.children[0].power = 10;
             candles[1].mesh.children[1].visible = true;
         }
         
@@ -177,7 +177,7 @@ export function animate() {
             candles[2].mesh.children[1].visible = false;
         }
         else{
-            candles[2].mesh.children[0].power = 1;
+            candles[2].mesh.children[0].power = 10;
             candles[2].mesh.children[1].visible = true;
         }
     }
@@ -188,7 +188,7 @@ export function animate() {
             candles[3].mesh.children[1].visible = false;
         }
         else{
-            candles[3].mesh.children[0].power = 1;
+            candles[3].mesh.children[0].power = 10;
             candles[3].mesh.children[1].visible = true;
         }
     }
@@ -200,7 +200,7 @@ export function animate() {
             candles[4].mesh.children[1].visible = false;
         }
         else{
-            candles[4].mesh.children[0].power = 1;
+            candles[4].mesh.children[0].power = 10;
             candles[4].mesh.children[1].visible = true;
         }
             
