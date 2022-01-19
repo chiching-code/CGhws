@@ -15,3 +15,7 @@
             <strong>hw3.html</strong></a><br>
 <a href="http://chiching-code.github.io/CGhws/hw4/hw4.html">
             <strong>hw4.html</strong></a><br>
+<a href="http://chiching-code.github.io/CGhws/hw5/5-1/hw5.html">
+            <strong>hw5-1.html</strong></a><br>
+<a href="http://chiching-code.github.io/CGhws/hw5/5-2/hw5-2.html">
+            <strong>hw5-2.html</strong></a><br>
