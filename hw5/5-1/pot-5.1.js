@@ -1,4 +1,4 @@
-import { TeapotGeometry } from 'https://raw.githack.com/mrdoob/three.js/dev/examples/jsm/geometries/TeapotGeometry.js';
+import { TeapotGeometry } from "https://threejs.org/examples/jsm/geometries/TeapotGeometry.js";
 import * as THREE from "https://threejs.org/build/three.module.js";
 import {scene} from "./main-5.1.js";
 
